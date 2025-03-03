@@ -10,9 +10,13 @@ exports.calculateTax = (req, res) => {
 
   if (taxableIncome <= 250000) tax = 0;
   else if (taxableIncome <= 500000) tax = (taxableIncome - 250000) * 0.05;
-  else if (taxableIncome <= 1000000) tax = 12500 + (taxableIncome - 500000) * 0.2;
-  else tax = 112500 + (taxableIncome - 1000000) * 0.3;
+  else if (taxableIncome <= 750000) tax = (250000 * 0.05)+(taxableIncome - 500000) * 0.1;
+  else if (taxableIncome <= 1000000) tax = (250000 * 0.05) + (250000 * 0.1) + (taxableIncome - 750000) * 0.15;
+  else if (taxableIncome <= 1250000) tax = (250000 * 0.05) + (250000 * 0.1) + (250000 * 0.15) + (taxableIncome - 1000000) * 0.2;
+  else if (taxableIncome <= 1500000) tax = (250000 * 0.05) + (250000 * 0.1) + (250000 * 0.15) + (250000 * 0.2) + (taxableIncome - 1250000) * 0.25;
+  else tax = (250000 * 0.05) + (250000 * 0.1) + (250000 * 0.15) + (250000 * 0.2) + (250000 * 0.25) +(taxableIncome - 150000) * 0.3;
 
+  if (taxableIncome <= 700000) tax = 0;
   const response = {
     taxableIncome,
     taxPayable: tax,

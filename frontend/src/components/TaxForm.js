@@ -16,7 +16,7 @@ const TaxForm = ({ setResult }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/tax/calculate", formData);
+      const res = await axios.post("https://tax-calculation-portalback.vercel.app/api/tax/calculate", formData);
       setResult(res.data);
     } catch (err) {
       console.error(err);
