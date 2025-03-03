@@ -1,8 +1,8 @@
 {
     "rewrites":[
         {
-            "source":"/(.*)",
-            "destination":"/"
+            "source":"/api/(.*)",
+            "destination":"https://tax-calculation-portalback.vercel.app/api/$1"
         }
     ]
 }
